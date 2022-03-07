@@ -164,4 +164,3 @@ class User
         return $this;
     }
 }
-Nguyen Hai
