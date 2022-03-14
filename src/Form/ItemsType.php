@@ -6,6 +6,7 @@ use App\Entity\Items;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ItemsType extends AbstractType
 {
@@ -13,10 +14,19 @@ class ItemsType extends AbstractType
     {
         $builder
             ->add('it_name')
-            ->add('it_image')
             ->add('it_description')
             ->add('it_price')
             ->add('cat_category')
+            ->add('imageFile', VichImageType::class, [
+                'required' => false,
+                'allow_delete' => true,
+                'delete_label' => '...',
+                'download_label' => '...',
+                'download_uri' => true,
+                'image_uri' => true,
+                'imagine_pattern' => 'product_photo_320x240',
+                'asset_helper' => true,
+            ]);
         ;
     }
 

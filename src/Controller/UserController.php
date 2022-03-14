@@ -77,7 +77,7 @@ class UserController extends AbstractController
     /**
      * @Route("/{id}/delete", name="app_user_deleteone", methods={"GET"})
      */
-    public function deleteone(Category $user): Response
+    public function deleteone(User $user): Response
     {
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->remove($user);

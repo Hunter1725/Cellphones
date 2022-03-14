@@ -9,10 +9,10 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>It_name</th>
-                <th>It_image</th>
+                <th>It_name</th>          
                 <th>It_description</th>
                 <th>It_price</th>
+                <th>image</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -21,9 +21,9 @@
             <tr>
                 <td>{{ item.id }}</td>
                 <td>{{ item.itName }}</td>
-                <td>{{ item.itImage }}</td>
                 <td>{{ item.itDescription }}</td>
                 <td>{{ item.itPrice }}</td>
+                <td><img src="{{vich_uploader_asset(item,'imageFile')}}" width="120" height="90"></td>    
                 <td>
                     <a href="{{ path('app_items_show', {'id': item.id}) }}">show</a>
                     <a href="{{ path('app_items_edit', {'id': item.id}) }}">edit</a>

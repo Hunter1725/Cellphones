@@ -1,32 +1,4 @@
-<div class="row">
-	<div class="form-group col-md-6">
-		<label>Name</label>
-		{{ form_widget(form.it_name, {'attr': {'class': 'form-control'}})}}
-	</div>
-</div>
-
-<div class="row">
-	<div class="form-group col-md-6">
-		<label>Image</label>
-		{{ form_widget(form.it_image, {'attr': {'class': 'form-control'}})}}
-	</div>
-</div>
-
-<div class="row">
-	<div class="form-group col-md-6">
-		<label>Description</label>
-		{{ form_widget(form.it_description, {'attr': {'class': 'form-control'}})}}
-	</div>
-</div>
-
-<div class="row">
-	<div class="form-group col-md-6">
-		<label>Name</label>
-		{{ form_widget(form.it_price, {'attr': {'class': 'form-control'}})}}
-	</div>
-</div>
-
-<div class="btn-group" role="group" aria-label="Basic example">
-	<button class="btn btn-success" type="submit">{{ button_label|default('Save') }}</button>
-	<a href="{{ path('app_items_index') }}" class="btn btn-primary">back to list</a>
-</div>
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
