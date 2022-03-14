@@ -20,10 +20,10 @@
 					<td>{{ category.id }}</td>
 					<td>{{ category.catName }}</td>
 					<td>
-						<a href="{{ path('app_category_show', {'id': supplier.id}) }}">
+						<a href="{{ path('app_category_show', {'id': category.id}) }}">
 							<span class="material-icons" style="color:green">visibility</span>
 						</a>
-						<a href="{{ path('app_supplier_edit', {'id': supplier.id}) }}">
+						<a href="{{ path('app_category_edit', {'id': category.id}) }}">
 							<span class="material-icons">mode_edit</span>
 						</a>
 					</td>
