@@ -26,7 +26,7 @@ class User
     private $us_fullname;
 
     #[ORM\Column(type: 'string', length: 50, nullable: true)]
-    private $string;
+    private $us_mail;
 
     #[ORM\Column(type: 'string', length: 12)]
     private $us_phone;
@@ -86,14 +86,14 @@ class User
         return $this;
     }
 
-    public function getString(): ?string
+    public function getUsMail(): ?string
     {
-        return $this->string;
+        return $this->us_mail;
     }
 
-    public function setString(?string $string): self
+    public function setUsMail(?string $us_mail): self
     {
-        $this->string = $string;
+        $this->us_mail = $us_mail;
 
         return $this;
     }
