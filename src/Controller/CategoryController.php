@@ -73,4 +73,15 @@ class CategoryController extends AbstractController
 
         return $this->redirectToRoute('app_category_index', [], Response::HTTP_SEE_OTHER);
     }
+    /**
+     * @Route("/{id}/delete", name="app_category_deleteone", methods={"GET"})
+     */
+    public function deleteone(Category $category): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($category);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_category_index');
+    }
 }
