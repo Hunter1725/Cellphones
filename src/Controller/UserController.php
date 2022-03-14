@@ -73,4 +73,16 @@ class UserController extends AbstractController
 
         return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    /**
+     * @Route("/{id}/delete", name="app_user_deleteone", methods={"GET"})
+     */
+    public function deleteone(Category $user): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($user);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_user_index');
+    }
 }
