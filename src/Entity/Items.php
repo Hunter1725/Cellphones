@@ -27,7 +27,7 @@ class Items
     #[ORM\Column(type: 'decimal', precision: 10, scale: '0')]
     private $it_price;
 
-    #[ORM\ManyToOne(targetEntity: category::class, inversedBy: 'items')]
+    #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'items')]
     #[ORM\JoinColumn(nullable: false)]
     private $cat_category;
 
@@ -92,12 +92,12 @@ class Items
         return $this;
     }
 
-    public function getCatCategory(): ?category
+    public function getCatCategory(): ?Category
     {
         return $this->cat_category;
     }
 
-    public function setCatCategory(?category $cat_category): self
+    public function setCatCategory(?Category $cat_category): self
     {
         $this->cat_category = $cat_category;
 

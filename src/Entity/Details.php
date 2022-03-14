@@ -22,10 +22,10 @@ class Details
     #[ORM\Column(type: 'integer')]
     private $de_totalprice;
 
-    #[ORM\ManyToOne(targetEntity: orders::class, inversedBy: 'details')]
+    #[ORM\ManyToOne(targetEntity: Orders::class, inversedBy: 'details')]
     private $or_orders;
 
-    #[ORM\ManyToOne(targetEntity: items::class, inversedBy: 'details')]
+    #[ORM\ManyToOne(targetEntity: Items::class, inversedBy: 'details')]
     #[ORM\JoinColumn(nullable: false)]
     private $it_items;
 
@@ -70,24 +70,24 @@ class Details
         return $this;
     }
 
-    public function getOrOrders(): ?orders
+    public function getOrOrders(): ?Orders
     {
         return $this->or_orders;
     }
 
-    public function setOrOrders(?orders $or_orders): self
+    public function setOrOrders(?Orders $or_orders): self
     {
         $this->or_orders = $or_orders;
 
         return $this;
     }
 
-    public function getItItems(): ?items
+    public function getItItems(): ?Items
     {
         return $this->it_items;
     }
 
-    public function setItItems(?items $it_items): self
+    public function setItItems(?Items $it_items): self
     {
         $this->it_items = $it_items;
 

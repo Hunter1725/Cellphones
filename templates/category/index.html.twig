@@ -1,16 +1,16 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseadmin.html.twig' %}
 
 {% block title %}Category index{% endblock %}
 
 {% block body %}
     <h1>Category index</h1>
-
+    <a href="{{ path('app_category_new') }}" class="btn btn-primary">Create new</a>
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Cat_name</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -31,5 +31,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_category_new') }}">Create new</a>
 {% endblock %}

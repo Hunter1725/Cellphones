@@ -33,7 +33,7 @@ class Orders
     #[ORM\Column(type: 'string', length: 200)]
     private $or_status;
 
-    #[ORM\ManyToOne(targetEntity: user::class, inversedBy: 'orders')]
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'orders')]
     #[ORM\JoinColumn(nullable: false)]
     private $us_user;
 
@@ -122,12 +122,12 @@ class Orders
         return $this;
     }
 
-    public function getUsUser(): ?user
+    public function getUsUser(): ?User
     {
         return $this->us_user;
     }
 
-    public function setUsUser(?user $us_user): self
+    public function setUsUser(?User $us_user): self
     {
         $this->us_user = $us_user;
 
