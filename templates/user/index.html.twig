@@ -1,47 +1,55 @@
 {% extends 'baseadmin.html.twig' %}
 
-{% block title %}User index{% endblock %}
+{% block title %}User information - Admin site
+{% endblock %}
 
 {% block body %}
-    <h1>User index</h1>
+	<h1>ACCOUNT INFORMATION</h1>
+    <hr></hr>
+	<a href="{{ path('app_user_new') }}" class="btn btn-primary">
+    <span class="material-icons">add</span>CREATE NEW</a>
+    <br></br>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>USERNAME</th>
+				<th>FULLNAME</th>
+				<th>E-MAIL</th>
+				<th>NUMBER PHONE</th>
+				<th>ADDRESS</th>
+				<th>ROLE</th>
+				<th>ACTIONS</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for user in users %}
+				<tr>
+					<td>{{ user.id }}</td>
+					<td>{{ user.usUsername }}</td>
+					<td>{{ user.usFullname }}</td>
+					<td>{{ user.usMail }}</td>
+					<td>{{ user.usPhone }}</td>
+					<td>{{ user.usAddress }}</td>
+					<td>{{ user.usRole }}</td>
+					<td>
+						<a href="{{ path('app_user_show', {'id': user.id}) }}">
+							<span class="material-icons" style="color:green">visibility</span>
+						</a>
+						<a href="{{ path('app_user_edit', {'id': user.id}) }}">
+							<span class="material-icons">mode_edit</span>
+						</a>
+						<a href="{{ path('app_user_deleteone', {'id': user.id}) }}" onclick="return confirm('Are you sure?')">
+							<span class="material-icons" style="color:red">delete</span>
+						</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="9">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Us_username</th>
-                <th>Us_password</th>
-                <th>Us_fullname</th>
-                <th>Us_mail</th>
-                <th>Us_phone</th>
-                <th>Us_address</th>
-                <th>Us_role</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.usUsername }}</td>
-                <td>{{ user.usPassword }}</td>
-                <td>{{ user.usFullname }}</td>
-                <td>{{ user.usMail }}</td>
-                <td>{{ user.usPhone }}</td>
-                <td>{{ user.usAddress }}</td>
-                <td>{{ user.usRole }}</td>
-                <td>
-                    <a href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="9">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_user_new') }}">Create new</a>
 {% endblock %}

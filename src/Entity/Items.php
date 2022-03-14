@@ -19,7 +19,7 @@ class Items
     private $it_name;
 
     #[ORM\Column(type: 'string', length: 50)]
-    private $it_imange;
+    private $it_image;
 
     #[ORM\Column(type: 'text')]
     private $it_description;
@@ -27,6 +27,7 @@ class Items
     #[ORM\Column(type: 'decimal', precision: 10, scale: '0')]
     private $it_price;
 
+    
     #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'items')]
     #[ORM\JoinColumn(nullable: false)]
     private $cat_category;
@@ -56,14 +57,14 @@ class Items
         return $this;
     }
 
-    public function getItImange(): ?string
+    public function getItImage(): ?string
     {
-        return $this->it_imange;
+        return $this->it_image;
     }
 
-    public function setItImange(string $it_imange): self
+    public function setItImage(string $it_image): self
     {
-        $this->it_imange = $it_imange;
+        $this->it_image = $it_image;
 
         return $this;
     }

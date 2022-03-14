@@ -13,7 +13,7 @@ class ItemsType extends AbstractType
     {
         $builder
             ->add('it_name')
-            ->add('it_imange')
+            ->add('it_image')
             ->add('it_description')
             ->add('it_price')
             ->add('cat_category')

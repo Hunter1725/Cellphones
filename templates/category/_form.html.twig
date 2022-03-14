@@ -1,4 +1,11 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<div class="row">
+	<div class="form-group col-md-6">
+		<label>Name</label>
+		{{ form_widget(form.cat_name, {'attr': {'class': 'form-control'}})}}
+	</div>
+</div>
+<div class="btn-group" role="group" aria-label="Basic example">
+	<button class="btn btn-success" type="submit">{{ button_label|default('Save') }}</button>
+	<a href="{{ path('app_category_index') }}" class="btn btn-primary">Back to list</a>
+</div>
