@@ -73,4 +73,16 @@ class ItemsController extends AbstractController
 
         return $this->redirectToRoute('app_items_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    /**
+     * @Route("/{id}/delete", name="app_items_deleteone", methods={"GET"})
+     */
+    public function deleteone(Items $item): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($item);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_items_index');
+    }
 }

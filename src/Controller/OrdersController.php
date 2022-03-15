@@ -73,4 +73,16 @@ class OrdersController extends AbstractController
 
         return $this->redirectToRoute('app_orders_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    /**
+     * @Route("/{id}/delete", name="app_orders_deleteone", methods={"GET"})
+     */
+    public function deleteone(Orders $order): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($order);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_orders_index');
+    }
 }
