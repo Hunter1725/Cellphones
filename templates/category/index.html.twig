@@ -1,17 +1,20 @@
 {% extends 'baseadmin.html.twig' %}
 
-{% block title %}Category index
+{% block title %}Brand information - Admin site
 {% endblock %}
 
 {% block body %}
-	<h1>Category index</h1>
-	<a href="{{ path('app_category_new') }}" class="btn btn-primary">Create new</a>
+	<h1>BRAND INFORMATION</h1>
+	<hr></hr>
+	<a href="{{ path('app_category_new') }}" class="btn btn-primary">
+		<span class="material-icons">add</span>ADD NEW</a>
+	<br></br>
 	<table class="table">
 		<thead>
 			<tr>
-				<th>Id</th>
-				<th>Cat_name</th>
-				<th>Actions</th>
+				<th>ID</th>
+				<th>BRAND</th>
+				<th>ACTIONS</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -26,12 +29,14 @@
 						<a href="{{ path('app_category_edit', {'id': category.id}) }}">
 							<span class="material-icons">mode_edit</span>
 						</a>
-                    <a href="{{ path('app_category_deleteone', {'id': category.id}) }}" onclick="return confirm('Are you sure?')"><span class="material-icons" style="color:red">delete</span></a> 
+						<a href="{{ path('app_category_deleteone', {'id': category.id}) }}" onclick="return confirm('Are you sure?')">
+							<span class="material-icons" style="color:red">delete</span>
+						</a>
 					</td>
 				</tr>
 			{% else %}
 				<tr>
-					<td colspan="3">no records found</td>
+					<td colspan="3">No records found</td>
 				</tr>
 			{% endfor %}
 		</tbody>

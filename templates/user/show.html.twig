@@ -8,43 +8,40 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>ID</th>
                 <td>{{ user.id }}</td>
             </tr>
             <tr>
-                <th>Us_username</th>
+                <th>Username</th>
                 <td>{{ user.usUsername }}</td>
             </tr>
             <tr>
-                <th>Us_password</th>
+                <th>Password</th>
                 <td>{{ user.usPassword }}</td>
             </tr>
             <tr>
-                <th>Us_fullname</th>
+                <th>Fullname</th>
                 <td>{{ user.usFullname }}</td>
             </tr>
             <tr>
-                <th>Us_mail</th>
+                <th>Mail</th>
                 <td>{{ user.usMail }}</td>
             </tr>
             <tr>
-                <th>Us_phone</th>
+                <th>Phone</th>
                 <td>{{ user.usPhone }}</td>
             </tr>
             <tr>
-                <th>Us_address</th>
+                <th>Address</th>
                 <td>{{ user.usAddress }}</td>
             </tr>
             <tr>
-                <th>Us_role</th>
+                <th>Role</th>
                 <td>{{ user.usRole }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_user_index') }}">back to list</a>
+    <a href="{{ path('app_user_index') }}" class="btn btn-primary">Back to list</a>
 
-    <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
-
-    {{ include('user/_delete_form.html.twig') }}
 {% endblock %}
