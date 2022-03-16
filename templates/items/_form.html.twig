@@ -2,29 +2,33 @@
 
 <div class="row">
 	<div class="form-group col-md-6">
-		<label>Name</label>
+		<label>Name:</label>
 		{{ form_widget(form.it_name, {'attr': {'class': 'form-control'}})}}
+		<small id="helpId" class="text-muted">Enter the name of an item.</small>
 	</div>
 </div>
 
 <div class="row">
 	<div class="form-group col-md-6">
-		<label>Description</label>
+		<label>Description:</label>
 		{{ form_widget(form.it_description, {'attr': {'class': 'form-control'}})}}
+	<small id="helpId" class="text-muted">Enter the description of an item.</small>
 	</div>
 </div>
 
 <div class="row">
 	<div class="form-group col-md-6">
-		<label>Prices</label>
+		<label>Price:</label>
 		{{ form_widget(form.it_price, {'attr': {'class': 'form-control'}})}}
+		<small id="helpId" class="text-muted">Enter the price of an item.</small>
 	</div>
 </div>
 
 <div class="row">
 	<div class="form-group col-md-6">
-		<label>Category</label>
+		<label>Brand:</label>
 		{{ form_widget(form.cat_category, {'attr': {'class': 'form-control'}})}}
+	<small id="helpId" class="text-muted">Choose the brand of an item.</small>
 	</div>
 </div>
 

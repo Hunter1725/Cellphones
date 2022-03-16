@@ -1,13 +1,13 @@
 {% extends 'baseadmin.html.twig' %}
 
-{% block title %}Edit Items{% endblock %}
+{% block title %}Edit item - Admin site{% endblock %}
 
 {% block body %}
-    <h1>Edit Items</h1>
+<h1>ITEM INFORMATION</h1>
+<hr></hr>
+<h3>EDIT ITEM</h3>
+<br></br>
 
     {{ include('items/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('app_items_index') }}">back to list</a>
-
-    {{ include('items/_delete_form.html.twig') }}
 {% endblock %}

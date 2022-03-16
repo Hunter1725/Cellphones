@@ -1,51 +1,54 @@
 {% extends 'baseadmin.html.twig' %}
 {% block title %}
-	Items
+	Item details - Admin site
 {% endblock %}
 {% block body %}
-	<h1>
-		Items
-	</h1>
-	<table class="table">
-		<tbody>
-			<tr>
-				<th>
-					ID
-				</th>
-				<td> {{ item.id }}
-				</td>
-			</tr>
-			<tr>
-				<th>
-					Name
-				</th>
-				<td> {{ item.itName }}
-				</td>
-			</tr>
-			<tr>
-				<th>
-					Description
-				</th>
-				<td> {{ item.itDescription }}
-				</td>
-			</tr>
-			<tr>
-				<th>
-					Price
-				</th>
-				<td> {{ item.itPrice }}
-				</td>
-			</tr>
-			<tr>
-				<th>
-					Image
-				</th>
-				<td>
-					<img src="{{ vich_uploader_asset(item,'imageFile') }}" width="200px"></td>
-			</tr>
-		</tbody>
-	</table>
-	<a href="{{ path('app_items_index') }}" class="btn btn-primary">
-		Back to list
-	</a>
-{% endblock %}
+
+	<h1>ITEM INFORMATION</h1>
+	<hr></hr>
+<h3>ITEM DETAILS</h3>
+<br></br><div class="container">
+<div class="row col-md-3">
+	<h4>
+		<strong>ID:</strong>
+	</h4>
+</div>
+<div class="row col-md-9">
+	<h4>{{ item.id }}</h4>
+</div>
+
+<div class="row col-md-3">
+	<h4>
+		<strong>Name:</strong>
+	</h4>
+</div>
+<div class="row col-md-9">
+	<h4>{{ item.itName }}</h4>
+</div>
+
+<div class="row col-md-3">
+	<h4>
+		<strong>Description:</strong>
+	</h4>
+</div>
+<div class="row col-md-9">
+	<h4>{{ item.itDescription }}</h4>
+</div>
+
+<div class="row col-md-3">
+	<h4>
+		<strong>Price:</strong>
+	</h4>
+</div>
+<div class="row col-md-9">
+	<h4>{{ item.itPrice }}</h4>
+</div>
+
+<div class="row col-md-3">
+	<h4>
+		<strong>Image:</strong>
+	</h4>
+</div>
+<div class="row col-md-9">
+	<td><img src="{{ vich_uploader_asset(item,'imageFile') }}" width="400px"></td>
+</div></div><br></br><a href="{{ path('app_items_index') }}" class="btn btn-primary">Back to list</a>{% endblock %}

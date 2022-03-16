@@ -1,23 +1,35 @@
 {% extends 'baseadmin.html.twig' %}
 
-{% block title %}Category{% endblock %}
+{% block title %}Brand details - Admin site
+{% endblock %}
 
 {% block body %}
-    <h1>Category</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>ID</th>
-                <td>{{ category.id }}</td>
-            </tr>
-            <tr>
-                <th>Category</th>
-                <td>{{ category.catName }}</td>
-            </tr>
-        </tbody>
-    </table>
-    
+	<h1>BRAND INFORMATION</h1>
+	<hr></hr>
+    <h3>BRAND DETAILS</h3>
+    <br></br>
+
+    <div class="container">
+        <div class="row col-md-3">
+            <h4>
+                <strong>ID:</strong>
+            </h4>
+        </div>
+        <div class="row col-md-9">
+            <h4>{{ category.id }}</h4>
+        </div>
+
+        <div class="row col-md-3">
+            <h4>
+                <strong>Name:</strong>
+            </h4>
+        </div>
+        <div class="row col-md-9">
+            <h4>{{ category.catName }}</h4>
+        </div>
+    </div>
+
+    <br></br>
     <a href="{{ path('app_category_index') }}" class="btn btn-primary">Back to list</a>
-
 {% endblock %}
