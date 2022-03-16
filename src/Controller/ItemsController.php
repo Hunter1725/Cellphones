@@ -84,4 +84,13 @@ class ItemsController extends AbstractController
 
         return $this->redirectToRoute('app_items_index');
     }
+    #[Route("/items/{id}/detail", name:"items.detail")]
+    
+    public function detail(Items $items): Response
+    {
+        return $this->render('items/detail.html.twig', [
+            'items' =>$items
+        ]);
+    }
+    
 }
