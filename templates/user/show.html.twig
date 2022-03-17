@@ -1,47 +1,87 @@
 {% extends 'baseadmin.html.twig' %}
 
-{% block title %}User{% endblock %}
+{% block title %}Account details - Admin site{% endblock %}
 
 {% block body %}
-    <h1>User</h1>
+<h1>ACCOUNT INFORMATION</h1>
+<hr></hr>
+<h3>ACCOUNT DETAILS</h3>
+<br></br>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>ID</th>
-                <td>{{ user.id }}</td>
-            </tr>
-            <tr>
-                <th>Username</th>
-                <td>{{ user.usUsername }}</td>
-            </tr>
-            <tr>
-                <th>Password</th>
-                <td>{{ user.usPassword }}</td>
-            </tr>
-            <tr>
-                <th>Fullname</th>
-                <td>{{ user.usFullname }}</td>
-            </tr>
-            <tr>
-                <th>Mail</th>
-                <td>{{ user.usMail }}</td>
-            </tr>
-            <tr>
-                <th>Phone</th>
-                <td>{{ user.usPhone }}</td>
-            </tr>
-            <tr>
-                <th>Address</th>
-                <td>{{ user.usAddress }}</td>
-            </tr>
-            <tr>
-                <th>Role</th>
-                <td>{{ user.usRole }}</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="container">
+    <div class="row col-md-3">
+        <h4>
+            <strong>ID:</strong>
+        </h4>
+    </div>
+    <div class="row col-md-9">
+        <h4>{{ user.id }}</h4>
+    </div>
+    
+    <div class="row col-md-3">
+        <h4>
+            <strong>Username:</strong>
+        </h4>
+    </div>
+    <div class="row col-md-9">
+        <h4>{{ user.usUsername }}</h4>
+    </div>
+    
+    <div class="row col-md-3">
+        <h4>
+            <strong>Password:</strong>
+        </h4>
+    </div>
+    <div class="row col-md-9">
+        <h4>{{ user.usPassword }}</h4>
+    </div>
+    
+    <div class="row col-md-3">
+        <h4>
+            <strong>Full name:</strong>
+        </h4>
+    </div>
+    <div class="row col-md-9">
+        <h4>{{ user.usFullname }}</h4>
+    </div>
+    
+    <div class="row col-md-3">
+        <h4>
+            <strong>E-mail:</strong>
+        </h4>
+    </div>
+    <div class="row col-md-9">
+        <h4>{{ user.usMail }}</h4>
+    </div>
 
+    <div class="row col-md-3">
+    <h4>
+        <strong>Phone number:</strong>
+    </h4>
+    </div>
+    <div class="row col-md-9">
+        <h4>{{ user.usPhone }}</h4>
+    </div>
+
+    <div class="row col-md-3">
+    <h4>
+        <strong>Address:</strong>
+    </h4>
+    </div>
+    <div class="row col-md-9">
+        <h4>{{ user.usAddress }}</h4>
+    </div>
+
+    <div class="row col-md-3">
+    <h4>
+        <strong>Role:</strong>
+    </h4>
+    </div>
+    <div class="row col-md-9">
+        <h4>{{ user.usRole }}</h4>
+    </div>
+</div>
+<br/>
     <a href="{{ path('app_user_index') }}" class="btn btn-primary">Back to list</a>
 
 {% endblock %}

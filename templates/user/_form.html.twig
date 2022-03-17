@@ -1,50 +1,57 @@
 {{ form_start(form) }}
 <div class="row">
 	<div class="form-group col-md-6">
-		<label>Username</label>
+		<label>Username:</label>
 		{{ form_widget(form.us_username, {'attr': {'class': 'form-control'}})}}
+		<small id="helpId" class="text-muted">Enter the username of an account.</small>
 	</div>
 </div>
 
 <div class="row">
 	<div class="form-group col-md-6">
-		<label>Password</label>
+		<label>Password:</label>
 		{{ form_widget(form.us_password, {'attr': {'class': 'form-control'}})}}
+		<small id="helpId" class="text-muted">Enter the password of an account.</small>
 	</div>
 </div>
 
 <div class="row">
 	<div class="form-group col-md-6">
-		<label>Full name</label>
+		<label>Full name:</label>
 		{{ form_widget(form.us_fullname, {'attr': {'class': 'form-control'}})}}
+		<small id="helpId" class="text-muted">Enter the full name of an account.</small>
 	</div>
 </div>
 
 <div class="row">
 	<div class="form-group col-md-6">
-		<label>Mail address</label>
+		<label>E-mail:</label>
 		{{ form_widget(form.us_mail, {'attr': {'class': 'form-control'}})}}
+	<small id="helpId" class="text-muted">Enter the e-mail of an account.</small>
 	</div>
 </div>
 
 <div class="row">
 	<div class="form-group col-md-6">
-		<label>Phone</label>
+		<label>Phone number:</label>
 		{{ form_widget(form.us_phone, {'attr': {'class': 'form-control'}})}}
+	<small id="helpId" class="text-muted">Enter the phone number of an account.</small>
 	</div>
 </div>
 
 <div class="row">
 	<div class="form-group col-md-6">
-		<label>Address</label>
+		<label>Address:</label>
 		{{ form_widget(form.us_address, {'attr': {'class': 'form-control'}})}}
+	<small id="helpId" class="text-muted">Enter the address of an account.</small>
 	</div>
 </div>
 
 <div class="row">
 	<div class="form-group col-md-6">
-		<label>Role</label>
+		<label>Role:</label>
 		{{ form_widget(form.us_role, {'attr': {'class': 'form-control'}})}}
+	<small id="helpId" class="text-muted">Enter the role of an account.</small>
 	</div>
 </div>
 

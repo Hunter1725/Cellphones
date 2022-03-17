@@ -1,7 +1,7 @@
 {{ form_start(form) }}
 <div class="row">
 	<div class="form-group col-md-6" id="datetimepicker1" class="input-append date">
-		<label>Order Date</label>
+		<label>Order date:</label>
 		<span class="material-icons">calendar_today</span>
 		{{ form_widget(form.or_date, {attr: { 
         'data-format': "dd/MM/yyyy hh:mm:ss" },
@@ -37,8 +37,9 @@
 </div>
 <div class="row">
 	<div class="form-group col-md-6">
-		<label>Order status</label>
+		<label>Status:</label>
 		{{ form_widget(form.or_status, {'attr': {'class': 'form-control'}})}}
+	<small id="helpId" class="text-muted">Enter the status of an order.</small>
 	</div>
 </div>
 <div class="row">
