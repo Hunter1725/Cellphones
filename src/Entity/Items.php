@@ -49,6 +49,9 @@ class Items
     #[ORM\OneToMany(mappedBy: 'item', targetEntity: OrderItem::class, orphanRemoval: true)]
     private $orderItems;
 
+    #[ORM\ManyToOne(targetEntity: Provider::class, inversedBy: 'item')]
+    private $provider;
+
     public function __construct()
     {
         $this->details = new ArrayCollection();
@@ -162,6 +165,18 @@ class Items
                 $orderItem->setItem(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getProvider(): ?Provider
+    {
+        return $this->provider;
+    }
+
+    public function setProvider(?Provider $provider): self
+    {
+        $this->provider = $provider;
 
         return $this;
     }

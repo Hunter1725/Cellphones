@@ -32,6 +32,14 @@
 	</div>
 </div>
 
+<div class="row">
+	<div class="form-group col-md-6">
+		<label>Upload:</label>
+		{{ form_widget(form.imageFile, {'attr': {'class': 'form-control'}})}}
+	<small id="helpId" class="text-muted">Choose the brand of an item.</small>
+	</div>
+</div>
+
 <div class="btn-group" role="group" aria-label="Basic example">
 	<button class="btn btn-success" type="submit">{{ button_label|default('Save') }}</button>
 	<a href="{{ path('app_items_index') }}" class="btn btn-primary">Back to list</a>
