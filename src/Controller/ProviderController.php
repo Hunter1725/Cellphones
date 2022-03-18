@@ -73,4 +73,16 @@ class ProviderController extends AbstractController
 
         return $this->redirectToRoute('app_provider_index', [], Response::HTTP_SEE_OTHER);
     }
+
+      /**
+     * @Route("/{id}/delete", name="app_provider_deleteone", methods={"GET"})
+     */
+    public function deleteone(Provider $provider): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($provider);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_provider_index');
+    }
 }

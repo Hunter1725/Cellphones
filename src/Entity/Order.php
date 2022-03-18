@@ -16,7 +16,7 @@ class Order
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\OneToMany(targetEntity: OrderItem::class, mappedBy: "orderRef", cascade: ["persist", "remove"] , orphanRemoval: true)]
+    #[ORM\OneToMany(targetEntity: OrderItem::class, mappedBy: "orderRef", cascade: ["persist", "remove"], orphanRemoval: true)]
     private $items;
 
     #[ORM\Column(type: "string", length: 255)]
@@ -29,10 +29,10 @@ class Order
      */
     const STATUS_CART = 'cart';
 
-    #[ORM\Column(type:"datetime")]
+    #[ORM\Column(type: "datetime")]
     private $createdAt;
 
-    #[ORM\Column(type:"datetime")]
+    #[ORM\Column(type: "datetime")]
     private $updatedAt;
 
     public function __construct()
@@ -71,6 +71,23 @@ class Order
     }
     public function removeItem(OrderItem $item): self
     {
+        if ($this->items->removeElement($item)) {
+            // set the owning side to null (unless already changed)
+            if ($item->getOrderRef() === $this) {
+                $item->setOrderRef(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * Removes all items from the order.
+     *
+     * @return $this
+     */
+    public function removeItems(): self
+    {
         foreach ($this->getItems() as $item) {
             $this->removeItem($item);
         }
@@ -101,7 +118,7 @@ class Order
 
         return $this;
     }
-    
+
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
@@ -113,8 +130,7 @@ class Order
 
         return $this;
     }
-
-    public function getUpdatedAt(): \DateTimeInterface
+public function getUpdatedAt(): \DateTimeInterface
     {
         return $this->updatedAt;
     }

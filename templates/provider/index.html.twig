@@ -1,17 +1,22 @@
 {% extends 'baseadmin.html.twig' %}
 
-{% block title %}Provider index{% endblock %}
+{% block title %}Provider information - Admin site{% endblock %}
 
 {% block body %}
-    <h1>Provider index</h1>
+<h1>PROVIDER INFORMATION</h1>
+<hr></hr>
+    
+<a href="{{ path('app_provider_new') }}" class="btn btn-primary">
+		<span class="material-icons">add</span>ADD</a>
+<br></br>
 
     <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Address</th>
-                <th>Actions</th>
+                <th>NAME</th>
+                <th>ADDRESS</th>
+                <th>ACTIONS</th>
             </tr>
         </thead>
         <tbody>
@@ -21,17 +26,20 @@
                 <td>{{ provider.name }}</td>
                 <td>{{ provider.address }}</td>
                 <td>
-                    <a href="{{ path('app_provider_show', {'id': provider.id}) }}">show</a>
-                    <a href="{{ path('app_provider_edit', {'id': provider.id}) }}">edit</a>
+                    <a href="{{ path('app_provider_show', {'id': provider.id}) }}"><span class="material-icons" style="color:green">visibility</span></a>
+                    <a href="{{ path('app_provider_edit', {'id': provider.id}) }}"><span class="material-icons">mode_edit</span></a>
+                    <a href="{{ path('app_provider_deleteone', {'id': provider.id}) }}" onclick="return confirm('Are you sure?')">
+							<span class="material-icons" style="color:red">delete</span>
+						</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">No records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_provider_new') }}">Create new</a>
+
 {% endblock %}

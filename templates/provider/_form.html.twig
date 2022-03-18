@@ -1,4 +1,22 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div class="row">
+	<div class="form-group col-md-6">
+		<label>Name:</label>
+		{{ form_widget(form.name, {'attr': {'class': 'form-control'}})}}
+		<small id="helpId" class="text-muted">Enter the name of a provider.</small>
+	</div>
+</div>
+
+<div class="row">
+	<div class="form-group col-md-6">
+		<label>Address:</label>
+		{{ form_widget(form.address, {'attr': {'class': 'form-control'}})}}
+		<small id="helpId" class="text-muted">Enter the address of a provider.</small>
+	</div>
+</div>
+
+<div class="btn-group" role="group" aria-label="Basic example">
+	<button class="btn btn-success" type="submit">{{ button_label|default('Save') }}</button>
+	<a href="{{ path('app_category_index') }}" class="btn btn-primary">Back to list</a>
+</div>
 {{ form_end(form) }}
