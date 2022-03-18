@@ -28,6 +28,13 @@
                     <h4>
                         Cellphones - Admin site
                     </h4>
+                    {% if app.user %}
+						<a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
+					{% else %}
+						<script type="text/javascript">
+							window.location.href = "/login"
+						</script>
+					{% endif %}
                     <ul class="nav nav-pills nav-stacked">
                         <li>
                             <a href="{{ path('app_category_index') }}">
