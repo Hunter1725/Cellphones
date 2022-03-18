@@ -2,30 +2,30 @@
 
 namespace App\Repository;
 
-use App\Entity\Orders;
+use App\Entity\Order;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Orders|null find($id, $lockMode = null, $lockVersion = null)
- * @method Orders|null findOneBy(array $criteria, array $orderBy = null)
- * @method Orders[]    findAll()
- * @method Orders[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Order|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Order|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Order[]    findAll()
+ * @method Order[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class OrdersRepository extends ServiceEntityRepository
+class OrderRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Orders::class);
+        parent::__construct($registry, Order::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(Orders $entity, bool $flush = true): void
+    public function add(Order $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -37,7 +37,7 @@ class OrdersRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(Orders $entity, bool $flush = true): void
+    public function remove(Order $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -46,7 +46,7 @@ class OrdersRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return Orders[] Returns an array of Orders objects
+    //  * @return Order[] Returns an array of Order objects
     //  */
     /*
     public function findByExampleField($value)
@@ -63,7 +63,7 @@ class OrdersRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Orders
+    public function findOneBySomeField($value): ?Order
     {
         return $this->createQueryBuilder('o')
             ->andWhere('o.exampleField = :val')

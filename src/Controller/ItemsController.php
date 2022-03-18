@@ -4,11 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Items;
 use App\Form\ItemsType;
+use App\Manager\CartManager;
 use App\Repository\ItemsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Form\AddToCartType;
 
 #[Route('/items')]
 class ItemsController extends AbstractController
@@ -73,7 +75,7 @@ class ItemsController extends AbstractController
 
         return $this->redirectToRoute('app_items_index', [], Response::HTTP_SEE_OTHER);
     }
-        /**
+    /**
      * @Route("/{id}/delete", name="app_items_deleteone", methods={"GET"})
      */
     public function deleteone(Items $items): Response
@@ -86,11 +88,27 @@ class ItemsController extends AbstractController
     }
     #[Route("/items/{id}/detail", name:"items.detail")]
     
-    public function detail(Items $items): Response
+    public function detail(Items $items, Request $request, CartManager $cartManager): Response  
     {
+        $form = $this->createForm(AddToCartType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $item = $form->getData();
+            $item->setItem($items);
+
+            $cart = $cartManager->getCurrentCart();
+            $cart
+                ->addItem($item)
+                ->setUpdatedAt(new \DateTime());
+            $cartManager->save($cart);
+            return $this->redirectToRoute('home', ['id' => $items->getId()]);
+        }
         return $this->render('items/detail.html.twig', [
-            'items' =>$items
+            'items'=>$items,
+            'form' => $form->createView()
         ]);
     }
     
+
 }

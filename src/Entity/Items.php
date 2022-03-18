@@ -46,12 +46,13 @@ class Items
     #[ORM\JoinColumn(nullable: false)]
     private $cat_category;
 
-    #[ORM\OneToMany(mappedBy: 'it_items', targetEntity: Details::class, orphanRemoval: true)]
-    private $details;
+    #[ORM\OneToMany(mappedBy: 'item', targetEntity: OrderItem::class, orphanRemoval: true)]
+    private $orderItems;
 
     public function __construct()
     {
         $this->details = new ArrayCollection();
+        $this->orderItems = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -107,36 +108,6 @@ class Items
         return $this;
     }
 
-    /**
-     * @return Collection<int, Details>
-     */
-    public function getDetails(): Collection
-    {
-        return $this->details;
-    }
-
-    public function addDetail(Details $detail): self
-    {
-        if (!$this->details->contains($detail)) {
-            $this->details[] = $detail;
-            $detail->setItItems($this);
-        }
-
-        return $this;
-    }
-
-    public function removeDetail(Details $detail): self
-    {
-        if ($this->details->removeElement($detail)) {
-            // set the owning side to null (unless already changed)
-            if ($detail->getItItems() === $this) {
-                $detail->setItItems(null);
-            }
-        }
-
-        return $this;
-    }
-    
     public function setImageFile(File $image = null)
     {
         $this->imageFile = $image;
@@ -163,6 +134,36 @@ class Items
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * @return Collection<int, OrderItem>
+     */
+    public function getOrderItems(): Collection
+    {
+        return $this->orderItems;
+    }
+
+    public function addOrderItem(OrderItem $orderItem): self
+    {
+        if (!$this->orderItems->contains($orderItem)) {
+            $this->orderItems[] = $orderItem;
+            $orderItem->setItem($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrderItem(OrderItem $orderItem): self
+    {
+        if ($this->orderItems->removeElement($orderItem)) {
+            // set the owning side to null (unless already changed)
+            if ($orderItem->getItem() === $this) {
+                $orderItem->setItem(null);
+            }
+        }
+
+        return $this;
     }
  
 }

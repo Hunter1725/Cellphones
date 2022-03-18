@@ -2,30 +2,25 @@
 
 namespace App\Form;
 
-use App\Entity\User;
+use App\Entity\OrderItem;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-class UserType extends AbstractType
+class AddToCartType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder
-            ->add('us_username')
-            ->add('us_password')
-            ->add('us_fullname')
-            ->add('us_mail')
-            ->add('us_phone')
-            ->add('us_address')
-            ->add('us_role')
-        ;
+        $builder->add('quantity');
+        $builder->add('add', SubmitType::class, [
+            'label' => 'Add to Cart',]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => User::class,
+            'data_class' => OrderItem::class,
         ]);
     }
 }

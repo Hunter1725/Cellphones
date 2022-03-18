@@ -2,30 +2,26 @@
 
 namespace App\Form;
 
-use App\Entity\Orders;
+use App\Entity\OrderItem;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class OrdersType extends AbstractType
+class CartItemType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('or_date')
-            ->add('or_deliverydate')
-            ->add('or_phone')
-            ->add('or_address')
-            ->add('or_totalprice')
-            ->add('or_status')
-            ->add('us_user')
+            ->add('quantity')
+            ->add('remove', SubmitType::class);
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Orders::class,
+            'data_class' => OrderItem::class,
         ]);
     }
 }

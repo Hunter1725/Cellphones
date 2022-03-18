@@ -16,13 +16,16 @@
 				<b>Description:
 				</b>
 				{{ items.itDescription }}
-				<form class = "mt4 p-4 bg-light" method="post">
-					<div class="form-group">
-						<lable for="quantity">Quantity</lable>
-						<input type="number" class="form-control" id="quantity">
+				{{ form_start(form, {'attr': {'class': 'mt-4 p-4 bg-light'}}) }}
+				<div class="form-group">
+					{{ form_label(form.quantity) }}
+					{{ form_widget(form.quantity, {'attr': {'class': 'form-control ' ~ (form.quantity.vars.valid ? '' : 'is-invalid')}}) }}
+					<div class="invalid-feedback">
+						{{ form_errors(form.quantity) }}
 					</div>
-					<button class="btn btn-warning ">Add to cart</button>
-				</form>
+				</div>
+				{{ form_widget(form.add, {'attr': {'class': 'btn btn-warning w25'}}) }}
+				{{ form_end(form) }}
 			</div>
 		</div>
 	</div>
