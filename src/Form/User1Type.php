@@ -6,6 +6,8 @@ use App\Entity\User1;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 class User1Type extends AbstractType
 {
@@ -13,9 +15,15 @@ class User1Type extends AbstractType
     {
         $builder
             ->add('email')
-            ->add('roles')
-            ->add('password')
-        ;
+            ->add('password', RepeatedType::class, [
+
+                'type' => PasswordType::class,
+
+                'first_options' => ['label' => 'Password'],
+
+                'second_options' => ['label' => 'Confirm Password']
+
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

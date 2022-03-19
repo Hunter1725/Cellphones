@@ -29,7 +29,7 @@ class RegistrationController extends AbstractController
 
     /**
 
-     * @Route("/registration", name="registration")
+     * @Route("/registration@1725", name="registration")
 
      */
 

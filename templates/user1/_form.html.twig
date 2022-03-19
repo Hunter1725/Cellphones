@@ -1,4 +1,30 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div class="row">
+	<div class="form-group col-md-6">
+		<label>Email:</label>
+		{{ form_widget(form.email, {'attr': {'class': 'form-control'}})}}
+		<small id="helpId" class="text-muted">Enter the email.</small>
+	</div>
+</div>
+
+<div class="row">
+	<div class="form-group col-md-6">
+		<label>Password 1:</label>
+		{{ form_widget(form.password.first, {'attr': {'class': 'form-control'}})}}
+		<small id="helpId" class="text-muted">Enter the Password.</small>
+	</div>
+</div>
+
+<div class="row">
+	<div class="form-group col-md-6">
+		<label>Password 2:</label>
+		{{ form_widget(form.password.second, {'attr': {'class': 'form-control'}})}}
+		<small id="helpId" class="text-muted">Enter the Confirm Password.</small>
+	</div>
+</div>
+
+<div class="btn-group" role="group" aria-label="Basic example">
+	<button class="btn btn-success" type="submit">{{ button_label|default('Save') }}</button>
+	<a href="{{ path('app_user1_index') }}" class="btn btn-primary">Back to list</a>
+</div>
 {{ form_end(form) }}

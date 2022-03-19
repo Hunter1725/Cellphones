@@ -9,10 +9,18 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 #[Route('/user1')]
 class User1Controller extends AbstractController
 {
+    private $passwordEncoder;
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+
+    {
+
+        $this->passwordEncoder = $passwordEncoder;
+    }
     #[Route('/', name: 'app_user1_index', methods: ['GET'])]
     public function index(User1Repository $user1Repository): Response
     {
@@ -29,6 +37,7 @@ class User1Controller extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user1->setPassword($this->passwordEncoder->encodePassword($user1, $user1->getPassword()));
             $user1Repository->add($user1);
             return $this->redirectToRoute('app_user1_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -54,6 +63,8 @@ class User1Controller extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $user1->setPassword($this->passwordEncoder->encodePassword($user1, $user1->getPassword()));
             $user1Repository->add($user1);
             return $this->redirectToRoute('app_user1_index', [], Response::HTTP_SEE_OTHER);
         }
