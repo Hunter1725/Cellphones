@@ -33,7 +33,7 @@ class RemoveCartItemListener implements EventSubscriberInterface
 
         // Removes items from the cart
         foreach ($form->get('items')->all() as $child) {
-            if ($child->get('remove')->isSubmitted()) {
+            if ($child->get('remove')->isClicked()) {
                 $cart->removeItem($child->getData());
                 break;
             }
