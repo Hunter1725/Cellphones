@@ -35,6 +35,9 @@ class Order
     #[ORM\Column(type: "datetime")]
     private $updatedAt;
 
+    #[ORM\OneToOne(mappedBy: 'info', targetEntity: Bill::class, cascade: ['persist', 'remove'])]
+    private $checkout;
+
     public function __construct()
     {
         $this->items = new ArrayCollection();
@@ -140,5 +143,27 @@ public function getUpdatedAt(): \DateTimeInterface
         $this->updatedAt = $updatedAt;
 
         return $this;
+    }
+
+    public function getCheckout(): ?Bill
+    {
+        return $this->checkout;
+    }
+
+    public function setCheckout(Bill $checkout): self
+    {
+        // set the owning side of the relation if necessary
+        if ($checkout->getInfo() !== $this) {
+            $checkout->setInfo($this);
+        }
+
+        $this->checkout = $checkout;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->status;
     }
 }
