@@ -33,8 +33,9 @@
 												<div class="invalid-feedback">
 													{{ form_errors(item.quantity) }}
 												</div>
-											</div>
-											{{ form_widget(item.remove, {'attr': {'class': 'btn btn-dark btn-sm'}}) }}
+											</div >
+											<br />
+											{{ form_widget(item.remove, {'attr': {'class': 'btn btn-dark btn-sm', 'style' : 'background-color: #BD1616'}}) }}
 										</div>
 									</div>
 									<div class="flex-fill mr-2
@@ -45,13 +46,14 @@
 								</li>
 							{% endfor %}
 						</ul>
+
 					</div>
 					{{ form_end(form) }}
 				</div>
 				<!-- Summary -->
 				<div class="col-md-4">
 					<div class="card mt-4 mt-md-0">
-						<h5 class="card-header bg-dark textwhite">Summary</h5>
+						<h5 class="card-header bg-dark textwhite" style="color: white">Summary</h5>
 						<ul class="list-group list-group-flush">
 							<li class="list-group-item d-flex justifycontent-between">
 								<div>
@@ -71,5 +73,6 @@
 				<a href="{{ path('home') }}">product list</a>.
 			</div>
 		{% endif %}
+		<br /><br>
 	</div>
 {% endblock %}

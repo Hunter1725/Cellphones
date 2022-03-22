@@ -7,12 +7,13 @@
         USER INFORMATION
     </h1>
     <hr></hr>
-    <a href="{{ path('app_user1_new') }}" class="btn btn-primary">
+    <a href="{{ path('app_user1_new') }}" style="background-color: #FFE400; color: black" class="btn btn-primary">
         <span class="material-icons">
             add
         </span>
-        CREATE ACCOUNT
+        REGISTER ACCOUNT
     </a>
+<br></br>
     <table class="table">
         <thead>
             <tr>
@@ -44,17 +45,17 @@
                     </td>
                     <td>
                         <a href="{{ path('app_user1_show', {'id': user1.id}) }}">
-                            <span class="material-icons" style="color:green">
+                            <span class="material-icons" style="color:#D9CE3F">
                                 visibility
                             </span>
                         </a>
-                        <a href="{{ path('app_user1_edit', {'id': user1.id}) }}">
+                        <a href="{{ path('app_user1_edit', {'id': user1.id}) }}" style="color:#E83A14">
                             <span class="material-icons">
                                 mode_edit
                             </span>
                         </a>
                         <a href="{{ path('app_user1_deleteone', {'id': user1.id}) }}" onclick="return confirm('Are you sure?')">
-                            <span class="material-icons" style="color:red">
+                            <span class="material-icons" style="color:#890F0D">
                                 delete
                             </span>
                         </a>

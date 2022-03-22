@@ -10,7 +10,7 @@
 <div class="row">
 	<div class="form-group col-md-6">
 		<label>Create date:</label>
-		{{ form_widget(form.createdAt, {'attr': {'class': 'form-control'}})}}
+		{{ form_widget(form.createdAt, {'attr': {'class': ''}})}}
 		<small id="helpId" class="text-muted">Choose the time to update the order.</small>
 	</div>
 </div>
@@ -18,12 +18,12 @@
 <div class="row">
 	<div class="form-group col-md-6">
 		<label>Update date:</label>
-		{{ form_widget(form.updatedAt, {'attr': {'class': 'form-control'}})}}
+		{{ form_widget(form.updatedAt, {'attr': {'class': ''}})}}
 		<small id="helpId" class="text-muted">Choose the time to update the order.</small>
 	</div>
 </div>
 <div class="btn-group" role="group" aria-label="Basic example">
-	<button class="btn btn-success" type="submit">{{ button_label|default('Save') }}</button>
-	<a href="{{ path('app_category_index') }}" class="btn btn-primary">Back to list</a>
+	<button class="btn btn-success" type="submit" style="background-color: #FFF600; color: black">{{ button_label|default('Save') }}</button>
+	<a href="{{ path('app_category_index') }}" style="background-color: #A1DD70; color: black"class="btn btn-primary">Back to list</a>
 </div>
 {{ form_end(form) }}

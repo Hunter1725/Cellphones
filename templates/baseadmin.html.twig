@@ -23,14 +23,11 @@
         {% endblock %}
     </head>
     <body>
-        <div class="container-fluid">
-            <div class="row content">
-                <div class="col-sm-2 sidenav">
-                    <h4>
-                        Cellphones - Admin site
-                        					
-                    </h4>
-                    <ul class="nav nav-pills nav-stacked">
+        <div class="container-fluid"  >
+            <div class="row content" >
+                <div class="col-sm-2 sidenav" style="background-color: #FFE6E6">
+                    <h4>Cellphones - Admin site</h4>
+                    <ul class="nav nav-pills nav-stacked" >
                         <li class="active">
                             <a href="/">
                                 <span class="material-icons">
@@ -83,9 +80,10 @@
                         </li>
                         <li>
                             <a href="{{ path('app_bill_index') }}">
-                            <span class="material-icons">
-                            receipt
-                            </span>
+                                <span class="material-icons">
+                                    receipt
+                                    								
+                                </span>
                                 Bill
                                 							
                             </a>
@@ -100,14 +98,15 @@
                                 							
                             </a>
                         </li>
-                    </ul>
+                  
                     {% if app.user %}
-                        <a class="nav-link" href="{{ path('app_logout') }}">
-                            <span class="material-icons">
-                                logout
-                                							
-                            </span>
-                            Logout
+                        <li><a class="nav-link" href="{{ path('app_logout') }}">
+                        <span class="material-icons">
+                        logout
+                                                    
+                    </span>
+                    Logout
+                </li>  </ul>
                         </a>
                     {% else %}
                         <script type="text/javascript">
@@ -121,9 +120,9 @@
                 </div>
             </div>
         </div>
-        <footer class="container-fluid">
+        <footer class="container-fluid" style="background-color: #890F0D; text-align: center;">
             <p>
-                Copy &copy Rights
+                &copy Cellphones 2022
                 				
             </p>
         </footer>

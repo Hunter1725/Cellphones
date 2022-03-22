@@ -73,4 +73,16 @@ class BillController extends AbstractController
 
         return $this->redirectToRoute('app_bill_index', [], Response::HTTP_SEE_OTHER);
     }
+
+      /**
+     * @Route("/{id}/delete", name="app_bill_deleteone", methods={"GET"})
+     */
+    public function deleteone(Bill $bill): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($bill);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_bill_index');
+    }
 }

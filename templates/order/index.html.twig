@@ -25,13 +25,13 @@
                 <td>{{ order.updatedAt ? order.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('app_order_show', {'id': order.id}) }}">
-                        <span class="material-icons" style="color:green">visibility</span>
+                        <span class="material-icons" style="color:#D9CE3F">visibility</span>
                     </a>
-                    <a href="{{ path('app_order_edit', {'id': order.id}) }}">
+                    <a href="{{ path('app_order_edit', {'id': order.id}) }}" style="color:#E83A14">
                         <span class="material-icons">mode_edit</span>
                     </a>
                     <a href="{{ path('app_order_deleteone', {'id': order.id}) }}" onclick="return confirm('Are you sure?')">
-                        <span class="material-icons" style="color:red">delete</span>
+                        <span class="material-icons" style="color:#890F0D">delete</span>
                     </a>
                 </td>
             </tr>

@@ -6,15 +6,18 @@
 /* Set gray background color and 100% height */
 
 .sidenav {
-    background-color: #f1f1f1;
+    background-color: #FFE3D8;
     height: 100%;
 }
 
+.nav .active li{
+    color: red !important;
+}
 
 /* Set black background color, white text and some padding */
 
 footer {
-    background-color: #555;
+    background-color: #E83A14;
     color: white;
     padding: 15px;
 }
@@ -33,9 +36,9 @@ footer {
 }
 
 .footer-dark {
-    padding: 50px 0;
+    padding-top: 50px;
     color: #f0f9ff;
-    background-color: #282d32;
+    background-color: #890F0D;
 }
 
 .footer-dark h3 {
@@ -120,4 +123,10 @@ footer {
     opacity: 0.3;
     font-size: 13px;
     margin-bottom: 0;
+}
+
+.bgheader{
+    background-image: url('header.png');
+    width: 100%;
+    height: 400px;
 }
