@@ -16,7 +16,8 @@ class ItemsType extends AbstractType
             ->add('it_name')
             ->add('it_description')
             ->add('it_price')
-            ->add('cat_category')
+            ->add('cat_category')                
+            ->add('provider')
             ->add('imageFile', VichImageType::class, [
                 'required' => false,
                 'allow_delete' => true,
@@ -25,6 +26,7 @@ class ItemsType extends AbstractType
                 'download_uri' => true,
                 'image_uri' => true,
                 'asset_helper' => true,
+
             ]);
         ;
     }

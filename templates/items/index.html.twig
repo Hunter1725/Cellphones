@@ -26,7 +26,7 @@
 					<td>{{ item.id }}</td>
 					<td>{{ item.itName }}</td>
 					<td>{{ item.itDescription }}</td>
-					<td>{{ item.itPrice }}</td>
+					<td>{{ item.itPrice }}$</td>
 					<td><img src="{{vich_uploader_asset(item,'imageFile')}}" width="120" height="90"></td>
 					<td>
 						<a href="{{ path('app_items_show', {'id': item.id}) }}">
